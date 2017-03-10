@@ -21,3 +21,23 @@
     font-size: 10vw;
     text-align: right;
 }
+
+#mc-keys {
+    align-items: center;
+}
+
+.mc-key {
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#mc-substract-button {
+  position: fixed;
+  display: block;
+  right: 0;
+  bottom: 0;
+  margin-right: 100px;
+  margin-bottom: 40px;
+  z-index: 900;
+}

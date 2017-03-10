@@ -4,7 +4,7 @@
 
 In the `templates` folder, run
 
-    handlebars -m ./ -f pt-templates.js
+    handlebars -m ./ -f mc-templates.js
 
 The `-m` flag will minify the output.
 
