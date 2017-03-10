@@ -49,16 +49,18 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="mc-style.css">
-      
+
       <script
   src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
   integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
   crossorigin="anonymous"></script>
-      
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.runtime.min.js" integrity="sha256-RcHv7xP44dpUfeKkp07L/T/mGl0xJm1BlH/RzYKMpVw=" crossorigin="anonymous"></script>
-      
-      <script src="templates/mc-templates.js"></script>
 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.runtime.min.js" integrity="sha256-RcHv7xP44dpUfeKkp07L/T/mGl0xJm1BlH/RzYKMpVw=" crossorigin="anonymous"></script>
+
+      <!-- <script src="templates/mc-templates.js"></script> -->
+
+      <script src="scripts/mc-main.js"></script>
+      <script src="scripts/mc-operations.js"></script>
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -66,8 +68,8 @@
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">MarksCalc</span>
           <div class="mdl-layout-spacer"></div>
-            
-            <!-- Search -->    
+
+            <!-- Search -->
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
               <i class="material-icons">search</i>
@@ -78,7 +80,7 @@
             </div>
           </div>
             <!-- /Search -->
-            
+
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="material-icons">more_vert</i>
           </button>
@@ -88,14 +90,14 @@
             <li class="mdl-menu__item">Legal information</li>
           </ul>
         </div>
-          
-          
+
+
           <!-- Tabs --> <!--
     <div class="mdl-layout__tab-bar mdl-js-ripple-effect ">
       <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Log</a>
     </div> -->
-          
-          
+
+
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
@@ -115,13 +117,13 @@
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-            
+
           <span class="mdl-navigation__link" href="">Puppers</span>
             <div id="pt-puppers-menu-list" class="demo-list-action mdl-list">
-                
+
             </div>
-            
-          <span class="mdl-navigation__link" href="">Options</span>    
+
+          <span class="mdl-navigation__link" href="">Options</span>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Inbox</a>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Trash</a>
@@ -137,119 +139,119 @@
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
-          
+
 
           <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
-            
+
 
               <div id="mc-screen" class="mdl-card__supporting-text mdl-color-text--grey-600 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
                 133769420
               </div>
-              
+
 
 
             <div class="demo-separator mdl-cell--1-col"></div>
-              
-              
-              
-            <div id="mc-keys" class="demo-options mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
+
+
+
+            <div id="mc-keys" onclick="Undo()" class="demo-options mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
                 <button class="mc-key mdl-color-text--white mdl-color--orange-400 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     <i class="material-icons">reply</i>
                 </button>
                 <button class="mc-key mdl-color-text--white mdl-color--pink-400 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     <i class="material-icons">block</i>
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-color--green-400 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    <i class="material-icons">add</i>
+                <button onclick="SetOperation('add')" class="mc-key mdl-color-text--white mdl-color--green-400 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    <i id="mc-add-key" class="material-icons">add</i>
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-color--red-400 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    <i class="material-icons">remove</i>
+                <button onclick="SetOperation('substract')" class="mc-key mdl-color-text--white mdl-color--red-400 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    <i id="mc-substract-key" class="material-icons">remove</i>
                 </button>
                 <br>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     5
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(0.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     ¼
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(0.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     ½
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(0.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     ¾
                 </button>
                 <br>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(1)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     1
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(1.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     1¼
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(1.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     1½
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(1.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     1¾
                 </button>
                 <br>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(2)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     2
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(2.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     2¼
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(2.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     2½
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(2.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     2¾
                 </button>
                 <br>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(3)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     3
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(3.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     3¼
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(3.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     3½
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(3.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     3¾
                 </button>
                 <br>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(4)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     4
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(4.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     4¼
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(4.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     4½
                 </button>
-                <button class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <button onclick="Push(4.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                     4¾
                 </button>
             </div>
-              
+
               <div class="demo-separator mdl-cell--1-col"></div>
-              
-              
-              
-              
+
+
+
+
           </div>
         </div>
       </main>
     </div>
 
-      
-      
-      <!-- Bottom Add Button 
+
+
+      <!-- Bottom Add Button
       <button id="mc-add-button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color-text--white"><i class="material-icons">add</i></button>
       <button id="mc-substract-button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-color-text--white"><i class="material-icons">remove</i></button>
        /Bottom Add Button -->
-      
+
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-            
+
   </body>
 </html>
