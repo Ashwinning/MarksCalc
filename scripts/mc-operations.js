@@ -42,5 +42,6 @@ function Undo()
 
 function Clear()
 {
-
+    trackedTotal = 0;
+    Update(trackedTotal);
 }
