@@ -41,6 +41,7 @@ function Push(number)
 */
 function Update(number)
 {
+    console.log(number);
     $('#mc-screen').text(number);
 }
 
