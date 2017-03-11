@@ -36,7 +36,26 @@ function SubstractActive()
 */
 function Undo()
 {
-    trackedTotal = trackedTotal + (stack[stack.length] * -1);
+    console.log('UNDO');
+    if (undoTrack == 0)
+    {
+        console.log('first undo');
+        // No undo has been done.
+        undoTrack = 1; //Set undotrack to one
+    }
+    else
+    {
+        undoTrack += 1; //undo from the last one
+    }
+    console.log('undoTrack = ' + undoTrack);
+    console.log('Last operation was : ' + stack[stack.length - undoTrack]);
+
+    if (undoTrack > stack.length - 1)
+    {
+        return;
+    }
+
+    trackedTotal = trackedTotal + (stack[stack.length - undoTrack] * -1);
     Update(trackedTotal);
 }
 
