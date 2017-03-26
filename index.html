@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="mc-style.css">
+      
 
       <script
   src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
@@ -61,6 +62,7 @@
 
       <script src="scripts/mc-main.js"></script>
       <script src="scripts/mc-operations.js"></script>
+      <script src="scripts/mc-keyboard-layout.js"></script>
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -151,96 +153,115 @@
 
 
             <div class="demo-separator mdl-cell--1-col"></div>
-
-
-
+              
+              <!-- <div id="mc-keys" class="demo-options mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop"> -->
+            
+              </div>
+<!--
             <div id="mc-keys" class="demo-options mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
-                <button onclick="Undo()" class="mc-key mdl-color-text--white mdl-color--orange-400 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    <i class="material-icons">reply</i>
-                </button>
-                <button onclick="Clear()" class="mc-key mdl-color-text--white mdl-color--pink-400 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    <i class="material-icons">block</i>
-                </button>
-                <button onclick="SetOperation('add')" class="mc-key mdl-color-text--white mdl-color--green-400 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    <i id="mc-add-key" class="material-icons">add</i>
-                </button>
-                <button onclick="SetOperation('substract')" class="mc-key mdl-color-text--white mdl-color--red-400 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    <i id="mc-substract-key" class="material-icons">remove</i>
-                </button>
-                <br>
-                <button onclick="Push(5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    5
-                </button>
-                <button onclick="Push(0.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    ¼
-                </button>
-                <button onclick="Push(0.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    ½
-                </button>
-                <button onclick="Push(0.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    ¾
-                </button>
-                <br>
-                <button onclick="Push(1)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    1
-                </button>
-                <button onclick="Push(1.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    1¼
-                </button>
-                <button onclick="Push(1.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    1½
-                </button>
-                <button onclick="Push(1.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    1¾
-                </button>
-                <br>
-                <button onclick="Push(2)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    2
-                </button>
-                <button onclick="Push(2.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    2¼
-                </button>
-                <button onclick="Push(2.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    2½
-                </button>
-                <button onclick="Push(2.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    2¾
-                </button>
-                <br>
-                <button onclick="Push(3)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    3
-                </button>
-                <button onclick="Push(3.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    3¼
-                </button>
-                <button onclick="Push(3.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    3½
-                </button>
-                <button onclick="Push(3.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    3¾
-                </button>
-                <br>
-                <button onclick="Push(4)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    4
-                </button>
-                <button onclick="Push(4.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    4¼
-                </button>
-                <button onclick="Push(4.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    4½
-                </button>
-                <button onclick="Push(4.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                    4¾
-                </button>
-            </div>
 
-              <div class="demo-separator mdl-cell--1-col"></div>
+                
+                
+                
+                
+            </div>
+-->
+            <!--  <div class="demo-separator mdl-cell--1-col"></div> -->
 
 
 
 
           </div>
-        </div>
+          
+          <table id="mc-key-table" class="mc-extend-till-bottom">
+                <tr width="100%">
+                    <td><button onclick="Undo()" class="mc-key mdl-color-text--white mdl-color--orange-400 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    <i class="material-icons">reply</i>
+                </button></td>
+                    <td><button onclick="Clear()" class="mc-key mdl-color-text--white mdl-color--pink-400 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    <i class="material-icons">block</i>
+                </button></td>
+                    <td><button onclick="SetOperation('add')" class="mc-key mdl-color-text--white mdl-color--green-400 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    <i id="mc-add-key" class="material-icons">add</i>
+                </button></td>
+                    <td><button onclick="SetOperation('substract')" class="mc-key mdl-color-text--white mdl-color--red-400 mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    <i id="mc-substract-key" class="material-icons">remove</i>
+                </button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="Push(5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    5
+                </button></td>
+                    <td><button onclick="Push(0.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    ¼
+                </button></td>
+                    <td><button onclick="Push(0.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    ½
+                </button></td>
+                    <td><button onclick="Push(0.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    ¾
+                </button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="Push(1)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    1
+                </button></td>
+                    <td><button onclick="Push(1.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    1¼
+                </button></td>
+                    <td><button onclick="Push(1.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    1½
+                </button></td>
+                    <td><button onclick="Push(1.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    1¾
+                </button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="Push(2)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    2
+                </button></td>
+                    <td><button onclick="Push(2.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    2¼
+                </button></td>
+                    <td><button onclick="Push(2.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    2½
+                </button></td>
+                    <td><button onclick="Push(2.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    2¾
+                </button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="Push(3)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    3
+                </button></td>
+                    <td><button onclick="Push(3.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    3¼
+                </button></td>
+                    <td><button onclick="Push(3.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    3½
+                </button></td>
+                    <td><button onclick="Push(3.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    3¾
+                </button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="Push(4)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    4
+                </button></td>
+                    <td><button onclick="Push(4.25)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    4¼
+                </button></td>
+                    <td><button onclick="Push(4.5)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    4½
+                </button></td>
+                    <td><button onclick="Push(4.75)" class="mc-key mdl-color-text--white mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    4¾
+                </button></td>
+                </tr>
+            </table>
+          
+          
+        <!-- </div> -->
       </main>
     </div>
 

@@ -24,12 +24,11 @@
 
 #mc-keys {
     align-items: center;
+    height: 100%;
 }
 
 .mc-key {
-    margin-top: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
+
 }
 
 #mc-substract-button {
@@ -40,4 +39,10 @@
   margin-right: 100px;
   margin-bottom: 40px;
   z-index: 900;
+}
+
+#mc-key-table {
+    width: 100%;
+    text-align: center;
+    height: 100%;
 }

@@ -12,6 +12,9 @@ function OnStart()
     SetOperation('add');
     //Set screen to 0
     $('#mc-screen').text(0);
+    
+    //Call all boot functions
+    ExtendTillBottom();
 }
 
 /*
