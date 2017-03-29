@@ -21,7 +21,12 @@ function AddActive()
     console.log('Adding');
     $('#mc-add-key').text('add_circle');
     $('#mc-substract-key').text('remove');
-
+    
+    $('#mc-vertical').removeClass('mc-anim-rotate-180-left mc-anim-transition mc-anim-color-red-400');
+    $('#mc-horizontal').removeClass('mc-anim-rotate-180-left mc-anim-transition mc-anim-color-red-400');
+    
+    $('#mc-vertical').addClass('mc-anim-rotate-90-right mc-anim-transition mc-anim-color-green-400');
+    $('#mc-horizontal').addClass('mc-anim-rotate-180-right mc-anim-transition mc-anim-color-green-400');
 }
 
 function SubstractActive()
@@ -29,6 +34,12 @@ function SubstractActive()
     console.log('Substracting');
     $('#mc-add-key').text('add');
     $('#mc-substract-key').text('remove_circle');
+    
+    $('#mc-vertical').removeClass('mc-anim-rotate-90-right mc-anim-transition mc-anim-color-green-400');
+    $('#mc-horizontal').removeClass('mc-anim-rotate-180-right mc-anim-transition mc-anim-color-green-400');
+    
+    $('#mc-vertical').addClass('mc-anim-rotate-180-left mc-anim-transition mc-anim-color-red-400');
+    $('#mc-horizontal').addClass('mc-anim-rotate-180-left mc-anim-transition mc-anim-color-red-400');
 }
 
 /*
@@ -64,3 +75,5 @@ function Clear()
     trackedTotal = 0;
     Update(trackedTotal);
 }
+
+

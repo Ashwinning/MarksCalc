@@ -49,11 +49,16 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="mc-style.css">
-      
+    <link rel="stylesheet" href="mc-anim.css">
 
       <script
   src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
   integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+  crossorigin="anonymous"></script>
+      
+      <script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
   crossorigin="anonymous"></script>
 
      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.runtime.min.js" integrity="sha256-RcHv7xP44dpUfeKkp07L/T/mGl0xJm1BlH/RzYKMpVw=" crossorigin="anonymous"></script>
@@ -63,6 +68,7 @@
       <script src="scripts/mc-main.js"></script>
       <script src="scripts/mc-operations.js"></script>
       <script src="scripts/mc-keyboard-layout.js"></script>
+      <script src="scripts/mc-anim.js"></script>
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -145,9 +151,12 @@
 
           <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
 
-
+              <div class="mc-screen-plus-minus">
+                <div id="mc-vertical"></div>
+                <div id="mc-horizontal"></div>
+              </div>
               <div id="mc-screen" class="mdl-card__supporting-text mdl-color-text--grey-600 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
-                0
+               0
               </div>
 
 
