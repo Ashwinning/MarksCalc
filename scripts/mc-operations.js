@@ -16,6 +16,23 @@ function SetOperation(operation)
     }
 }
 
+function ToggleOperation()
+{
+    //console.log('toggle');
+    
+    if (activeOperation == "substract")
+    {
+        activeOperation = "add";
+        AddActive();
+    }
+    else if (activeOperation == "add")
+    {
+        activeOperation = "substract";
+        SubstractActive();
+    }
+}
+
+
 function AddActive()
 {
     console.log('Adding');
